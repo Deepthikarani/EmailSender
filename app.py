@@ -9,7 +9,7 @@ import os
 #email configuration
 sender = input('Enter sender email address:')
 receiver = input('Enter receiver email address:')
-password = input('Enter sender email password:')
+password = input('Enter sender email password:') #rcpm tvrz jkjg wmvp
 
 #creating  the email content
 subject = input('Enter the subject of the email:')
@@ -24,8 +24,13 @@ msg['Subject'] = subject
 msg.attach(MIMEText(body,'plain')) #converting the body to MIMEText object and attaching it to msg
 
 #attachment path
-file_path = input('Enter the file path of the attachment:')   #getting file path from user
+file_path = input('Enter the file path of the attachment:').strip()  #getting file path from user
+file_path = os.path.normpath(file_path) #normalizing the file path
 
+if not os.path.isfile(file_path):
+    print("File not found.Please check the path.")
+    exit() 
+    
 #open the file in binary mode
 with open(file_path , 'rb') as attachment:
     part = MIMEBase('application','octet-stream') #allows to send any type of file
