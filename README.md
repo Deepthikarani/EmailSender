@@ -17,9 +17,11 @@ This project demonstrates how to automate email sending securely using Python's 
 - Gmail SMTP server
 
 # Project structure
+```
 |
 |---app.py #main python script
 |---README.md #project documentation
+```
 
 # Prerequisites
 Before running this project , make sure you have:
